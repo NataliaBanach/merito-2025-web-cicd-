@@ -26,6 +26,9 @@ jobs:
       - name: Build with dotnet
         run: dotnet build MeritoWebApp/MeritoWebApp.csproj --configuration Release
 
+      - name: Test
+        run: dotnet test tests/tests.csproj --no-build --verbosity normal
+
       - name: dotnet publish
         run: dotnet publish MeritoWebApp/MeritoWebApp.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
